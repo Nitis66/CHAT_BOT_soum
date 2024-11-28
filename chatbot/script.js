@@ -1,4 +1,5 @@
 // Function to simulate fetching a response from an API
+// Function to simulate fetching a response from an API
 async function fetchResponse(userMessage) {
     const response = await fetch("responses.json");
     const data = await response.json();
@@ -9,8 +10,14 @@ async function fetchResponse(userMessage) {
         .trim()
         .replace(/\s+/g, ' '); // Replace multiple spaces with a single space
 
-    // Check for an exact match
+    // Check if the message has an exact match
     if (data[normalizedMessage]) {
+        // If the response is an array, pick a random response
+        if (Array.isArray(data[normalizedMessage])) {
+            const randomIndex = Math.floor(Math.random() * data[normalizedMessage].length);
+            return data[normalizedMessage][randomIndex];
+        }
+        // If it's a single response (not an array), return it directly
         return data[normalizedMessage];
     }
 
@@ -19,8 +26,15 @@ async function fetchResponse(userMessage) {
     const foundKey = possibleKeys.find(key => normalizedMessage.includes(key));
 
     if (foundKey) {
+        // If the response is an array, pick a random response
+        if (Array.isArray(data[foundKey])) {
+            const randomIndex = Math.floor(Math.random() * data[foundKey].length);
+            return data[foundKey][randomIndex];
+        }
+        // If it's a single response (not an array), return it directly
         return data[foundKey];
     }
+
 
     // Default fallback response
     return "Maaf kijiye, main samajh nahi paaya. Kya aap kuch aur poochhna chahenge?";

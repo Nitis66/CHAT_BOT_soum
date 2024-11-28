@@ -1,61 +1,33 @@
-.chatbot-card {
-    max-width: 600px;
-    margin: 0 auto;
-    border-radius: 8px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-.chat-box {
-    height: 400px;
-    overflow-y: auto;
-    padding: 10px;
-    border: 1px solid #ddd;
-    background-color: #f8f9fa;
-}
 
-.message {
-    margin-bottom: 10px;
-    padding: 8px 12px;
-    border-radius: 5px;
-    max-width: 75%;
-}
-
-.user-message {
-    text-align: right;
-    background-color: #007bff;
-    color: #fff;
-    margin-left: auto;
-}
-
-.bot-message {
-    text-align: left;
-    background-color: #e2e2e2;
-    color: #333;
-    margin-right: auto;
-}
-
-/* Dark Gradient Theme */
+/* Global Background */
 body {
-    background: #1b1b1b; /* Dark background for entire page */
+    background: #04012b; /* Dark background for the entire page */
     color: #ffffff; /* White text color */
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-/* Chatbot card with dark gradient */
+/* Chatbot card with transparent background */
 .chatbot-card {
     max-width: 600px;
     margin: 0 auto;
     border-radius: 8px;
-    background: linear-gradient(135deg, #2b2b4b, #141428);
+    background: rgba(255, 255, 255, 0.1); /* Transparent white background for glassy effect */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
-    color: #ffffff;
+    backdrop-filter: blur(10px); /* Frosted glass effect */
     overflow: hidden;
+    padding: 10px;
 }
 
-/* Header with gradient */
+/* Header with pink gradient */
 .card-header {
-    background: linear-gradient(135deg, #3c3c60, #242442);
+    background: linear-gradient(135deg, #05033f, #03024b);
     color: #ffffff;
     font-weight: bold;
+    padding: 15px;
 }
 
 /* Chat box */
@@ -63,44 +35,64 @@ body {
     height: 400px;
     overflow-y: auto;
     padding: 10px;
-    background-color: #1f1f2e;
+    background-color: rgba(31, 31, 46, 0.9); /* Dark background with slight transparency */
     border: none;
     color: #ffffff;
+    border-radius: 5px;
 }
 
-/* Messages */
+/* Messages with neon gradient borders */
 .message {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     padding: 8px 12px;
     border-radius: 5px;
     max-width: 75%;
     color: #ffffff;
+    position: relative;
+    z-index: 1;
+    background: #2e2e4b35; /* Default message background */
+    box-shadow: 0 0 5px rgba(255, 20, 147, 0.8), 0 0 10px rgba(255, 20, 147, 0.8); /* Pink neon glow effect */
 }
 
+/* Neon Gradient Border Effect for User Messages */
 .user-message {
     background-color: #4c4c74;
     color: #ffffff;
     text-align: right;
     margin-left: auto;
+    box-shadow: 0 0 10px 2px rgba(255, 20, 147, 1); /* Pink neon border */
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 8px 12px;
+    position: relative;
 }
 
+/* Neon Gradient Border Effect for Bot Messages */
 .bot-message {
     background-color: #2e2e4b;
     color: #ffffff;
     text-align: left;
     margin-right: auto;
+    box-shadow: 0 0 10px 2px rgba(255, 20, 147, 1); /* Pink neon border */
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 8px 12px;
+    position: relative;
 }
 
 /* Input area */
 .card-footer {
     background-color: #141428;
     border-top: 1px solid #444;
+    padding: 10px;
 }
 
+/* Input field */
 .input-group .form-control {
     background-color: #2b2b4b;
     border: 1px solid #444;
     color: #ffffff;
+    border-radius: 5px;
 }
 
 .input-group .form-control:focus {
@@ -114,6 +106,7 @@ body {
     background-color: #4c4c74;
     border-color: #4c4c74;
     color: #ffffff;
+    border-radius: 5px;
 }
 
 .input-group-append .btn:hover {
